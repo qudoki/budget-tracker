@@ -40,7 +40,19 @@ function checkDatabase() {
     const transaction = db.transaction(["pending"], "readWrite"); 
     const store = transaction.objectStore("pending");
     const getAllTrans = store.getAllTrans();
-}
+
+    getAllTrans.onsuccess = function () {
+        if (getAllTrans.result.length > 0) {
+            fetch("/api/transaction/bulk", {
+                method: "POST",
+                body: JSON.stringify(getAllTrans.result),
+                headers: {
+                    Accept: "application/json, text/plain, */*",
+                    "Content-Type": "application/json"
+                }
+            })
+    .then()
+    .then(())
 
 //listen for app coming back online
 window.addEventListener("online", checkDatabase);

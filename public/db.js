@@ -15,19 +15,31 @@ request.onupgradeneeded = ({ target }) => {
 };
 
 //if online check DB
-request.onsuccess = ({ target }) => {
-}
+// request.onsuccess = ({ target }) => {
+request.onsuccess = function (event) {
+    db = event.target.result;
+    if (navigator.onLine) {
+        checkDatabase();
+    }
+};
 
 //deal with it
 request.onerror = function(event) {
+    console.log("Error!" + " " + event.target.errorCode)
 }
 
 //save record to db (called if offline - request fail)
-function saveRecord(record) {   
+function saveRecord(record) {  
+    const transaction = db.transaction(["pending"], "readWrite"); 
+    const store = transaction.objectStore("pending");
+    store.add(record);
 }
 
 //back online, send to mongo and clear pending (indexedDB)
 function checkDatabase() {
+    const transaction = db.transaction(["pending"], "readWrite"); 
+    const store = transaction.objectStore("pending");
+    const getAllTrans = store.getAllTrans();
 }
 
 //listen for app coming back online

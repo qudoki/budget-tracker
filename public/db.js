@@ -37,6 +37,7 @@ function saveRecord(record) {
 
 //back online, send to mongo and clear pending (indexedDB)
 function checkDatabase() {
+    //below is failing, !!! check here
     const transaction = db.transaction(["pending"], "readWrite"); 
     const store = transaction.objectStore("pending");
     const getAllTrans = store.getAllTrans();

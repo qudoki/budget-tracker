@@ -8,9 +8,9 @@ window.simIndexedDB;
 let db;
 const request = indexedDB.open("budget", 1);
 
-// above register service worker
-// check for service worker
+// register service worker
 
+// check for service worker
 // service worker lifecycle
 
 //schema

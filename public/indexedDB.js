@@ -1,10 +1,10 @@
-// export function checkDatabase() {
-// 	if (!window.indexedDB) {
-// 		console.log("Your browser doesn't support a stable version of IndexedDB.");
-// 		return false;
-// 	}
-// 	return true;
-// }
+export function checkDatabase() {
+	if (!window.indexedDB) {
+		console.log("Your browser doesn't support a stable version of IndexedDB.");
+		return false;
+	}
+	return true;
+}
 
 const indexedDB =
 	window.indexedDB ||

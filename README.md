@@ -19,7 +19,7 @@ This application allows users to track expenses and create a chart over time. Us
 
 
 ## Installation:
-- This package requires node.js if running locally. You can install the package dependencies by entering the following command: "node server.js"; otherwise it is deployed on Heroku and MongoDB Atlas.
+- This package requires node.js if running locally. You can install the package dependencies by entering the following command: "node"; otherwise it is deployed on Heroku and MongoDB Atlas.
 
 
 ## Usage:
